@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		46A44BE92BBD8B320090BB61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A44BE82BBD8B320090BB61 /* AppDelegate.swift */; };
 		46A44BEB2BBD8B320090BB61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A44BEA2BBD8B320090BB61 /* SceneDelegate.swift */; };
-		46A44BED2BBD8B320090BB61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A44BEC2BBD8B320090BB61 /* ViewController.swift */; };
-		46A44BF02BBD8B320090BB61 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 46A44BEF2BBD8B320090BB61 /* Base */; };
+		46A44BED2BBD8B320090BB61 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A44BEC2BBD8B320090BB61 /* TaskViewController.swift */; };
 		46A44BF22BBD8B360090BB61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A44BF12BBD8B360090BB61 /* Assets.xcassets */; };
 		46A44BF52BBD8B360090BB61 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 46A44BF42BBD8B360090BB61 /* Base */; };
+		46A44BFD2BBD90550090BB61 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A44BFC2BBD90550090BB61 /* Task.swift */; };
+		46A44C002BBD90A50090BB61 /* TaskViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A44BFF2BBD90A50090BB61 /* TaskViewViewModel.swift */; };
+		46A44C042BBD921C0090BB61 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A44C032BBD921C0090BB61 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		46A44BE52BBD8B320090BB61 /* GTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A44BE82BBD8B320090BB61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46A44BEA2BBD8B320090BB61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		46A44BEC2BBD8B320090BB61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		46A44BEF2BBD8B320090BB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		46A44BEC2BBD8B320090BB61 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		46A44BF12BBD8B360090BB61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46A44BF42BBD8B360090BB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46A44BF62BBD8B360090BB61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46A44BFC2BBD90550090BB61 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		46A44BFF2BBD90A50090BB61 /* TaskViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewViewModel.swift; sourceTree = "<group>"; };
+		46A44C032BBD921C0090BB61 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,49 @@
 		46A44BE72BBD8B320090BB61 /* GTask */ = {
 			isa = PBXGroup;
 			children = (
-				46A44BE82BBD8B320090BB61 /* AppDelegate.swift */,
-				46A44BEA2BBD8B320090BB61 /* SceneDelegate.swift */,
-				46A44BEC2BBD8B320090BB61 /* ViewController.swift */,
-				46A44BEE2BBD8B320090BB61 /* Main.storyboard */,
+				46A44C022BBD90C80090BB61 /* App */,
+				46A44C012BBD90BA0090BB61 /* TaskList */,
+				46A44BFE2BBD90610090BB61 /* Models */,
+				46A44C052BBD922C0090BB61 /* Services */,
 				46A44BF12BBD8B360090BB61 /* Assets.xcassets */,
 				46A44BF32BBD8B360090BB61 /* LaunchScreen.storyboard */,
 				46A44BF62BBD8B360090BB61 /* Info.plist */,
 			);
 			path = GTask;
+			sourceTree = "<group>";
+		};
+		46A44BFE2BBD90610090BB61 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				46A44BFC2BBD90550090BB61 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		46A44C012BBD90BA0090BB61 /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				46A44BEC2BBD8B320090BB61 /* TaskViewController.swift */,
+				46A44BFF2BBD90A50090BB61 /* TaskViewViewModel.swift */,
+			);
+			path = TaskList;
+			sourceTree = "<group>";
+		};
+		46A44C022BBD90C80090BB61 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				46A44BE82BBD8B320090BB61 /* AppDelegate.swift */,
+				46A44BEA2BBD8B320090BB61 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		46A44C052BBD922C0090BB61 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				46A44C032BBD921C0090BB61 /* StorageManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +165,6 @@
 			files = (
 				46A44BF22BBD8B360090BB61 /* Assets.xcassets in Resources */,
 				46A44BF52BBD8B360090BB61 /* Base in Resources */,
-				46A44BF02BBD8B320090BB61 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46A44BED2BBD8B320090BB61 /* ViewController.swift in Sources */,
+				46A44BFD2BBD90550090BB61 /* Task.swift in Sources */,
+				46A44C002BBD90A50090BB61 /* TaskViewViewModel.swift in Sources */,
+				46A44BED2BBD8B320090BB61 /* TaskViewController.swift in Sources */,
+				46A44C042BBD921C0090BB61 /* StorageManager.swift in Sources */,
 				46A44BE92BBD8B320090BB61 /* AppDelegate.swift in Sources */,
 				46A44BEB2BBD8B320090BB61 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +187,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		46A44BEE2BBD8B320090BB61 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				46A44BEF2BBD8B320090BB61 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		46A44BF32BBD8B360090BB61 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,9 +329,8 @@
 				INFOPLIST_FILE = GTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +338,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = PavelGribachev.GTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -325,9 +360,8 @@
 				INFOPLIST_FILE = GTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +369,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = PavelGribachev.GTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
