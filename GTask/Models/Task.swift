@@ -12,4 +12,15 @@ struct Task {
     let description: String
     
     let isCompleted: Bool
+    
+    static func getTasks() -> [Task] {
+        var tasks: [Task] = []
+        
+        for _ in 1...5 {
+            let task = Task(title: "Tom", description: "Hardley", isCompleted: true)
+            tasks.append(task)
+        }
+        
+        return tasks
+    }
 }

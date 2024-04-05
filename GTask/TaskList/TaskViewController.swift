@@ -11,14 +11,13 @@ class TaskViewController: UIViewController {
     
     private let cellID = "taskCell"
     private let storageManager = StorageManager.shared
-    private var taskList: [String] = ["tas", "two", "therr"]
+    private var taskList = Task.getTasks()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
         
-        view.backgroundColor = .white
-
+        view.backgroundColor = .darkGray
     }
 }
 
@@ -41,6 +40,7 @@ extension TaskViewController {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), style: .grouped)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.backgroundColor = .clear
         tableView.dataSource = self
         view.addSubview(tableView)
     }
@@ -53,12 +53,15 @@ extension TaskViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) 
-        cell.textLabel?.text = taskList[indexPath.row]
-        return cell
+        cell.backgroundColor = .clear
         
+        let task = taskList[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        content.text = task.title
+        
+        cell.contentConfiguration = content
+        return cell
     }
-    
-    
 }
 
 #Preview {
