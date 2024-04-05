@@ -38,9 +38,21 @@ class TaskViewController: UIViewController {
 private extension TaskViewController {
     func setUpConstraints() {
         
+        // UILayoutGuide
+        let guide = UILayoutGuide()
+        view.addLayoutGuide(guide)
+        
+        NSLayoutConstraint.activate([
+            guide.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75),
+            guide.widthAnchor.constraint(equalTo: view.widthAnchor),
+            guide.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            guide.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
         // buttonAdd
         NSLayoutConstraint.activate([
-            buttonAdd.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
+            buttonAdd.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+            
             buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonAdd.widthAnchor.constraint(equalToConstant: 120),
             buttonAdd.heightAnchor.constraint(equalToConstant: 120)
