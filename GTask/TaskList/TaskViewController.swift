@@ -18,14 +18,9 @@ class TaskViewController: UIViewController {
         
         return button
     }()
-    
-    private lazy var addNewTaskView: UIView = {
-        let taskView = UIView()
-        
-        taskView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return taskView
-    }()
+
+    // ViewAddNewTask
+    let viewAddNewTask = NewTaskView()
     
     private let cellID = "taskCell"
     private let storageManager = StorageManager.shared
@@ -48,6 +43,7 @@ private extension TaskViewController {
         setNavItem()
         setTableView()
         setButtonAdd()
+        setNewTaskView(true)
     }
     
     // navigationController
@@ -71,7 +67,11 @@ private extension TaskViewController {
         view.addSubview(buttonAdd)
     }
     
-    
+    func setNewTaskView(_ isHidden: Bool) {
+        view.addSubview(viewAddNewTask)
+        viewAddNewTask.isHidden = isHidden
+        
+    }
 }
 
 extension TaskViewController: UITableViewDataSource {
@@ -116,13 +116,15 @@ private extension TaskViewController {
             buttonAdd.heightAnchor.constraint(equalToConstant: 120)
         ])
         
-        // buttonAdd
+        // addNewTaskView
         NSLayoutConstraint.activate([
-            buttonAdd.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+            viewAddNewTask.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            viewAddNewTask.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
-            buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonAdd.widthAnchor.constraint(equalToConstant: 120),
-            buttonAdd.heightAnchor.constraint(equalToConstant: 120)
+            viewAddNewTask.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            viewAddNewTask.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            viewAddNewTask.heightAnchor.constraint(equalToConstant: 600)
         ])
     }
 }
