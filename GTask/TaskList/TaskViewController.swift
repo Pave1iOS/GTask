@@ -9,6 +9,15 @@ import UIKit
 
 class TaskViewController: UIViewController {
     
+    private lazy var buttonAdd: UIButton = {
+        let button = UIButton()
+        let image = UIImage(named: "addButtonImage")
+        button.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
+        button.setBackgroundImage(image, for: .normal)
+        
+        return button
+    }()
+    
     private let cellID = "taskCell"
     private let storageManager = StorageManager.shared
     private var taskList = Task.getTasks()
@@ -21,12 +30,18 @@ class TaskViewController: UIViewController {
     }
 }
 
+// MARK: Constraints
+private extension TaskViewController {
+    
+}
+
 // MARK: ViewController Style
-extension TaskViewController {
+private extension TaskViewController {
     
     func setUpView() {
         setNavItem()
         setTableView()
+        setButtonAdd()
     }
     
     // navigationController
@@ -43,6 +58,10 @@ extension TaskViewController {
         tableView.backgroundColor = .clear
         tableView.dataSource = self
         view.addSubview(tableView)
+    }
+    
+    func setButtonAdd() {
+        view.addSubview(buttonAdd)
     }
 }
 
