@@ -12,8 +12,10 @@ class TaskViewController: UIViewController {
     private lazy var buttonAdd: UIButton = {
         let button = UIButton()
         let image = UIImage(named: "addButtonImage")
-        button.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
+//        button.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
         button.setBackgroundImage(image, for: .normal)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
@@ -24,15 +26,26 @@ class TaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpView()
-        
         view.backgroundColor = .darkGray
+        
+        setUpView()
+        setUpConstraints()
+        
     }
 }
 
 // MARK: Constraints
 private extension TaskViewController {
-    
+    func setUpConstraints() {
+        
+        // buttonAdd
+        NSLayoutConstraint.activate([
+            buttonAdd.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
+            buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonAdd.widthAnchor.constraint(equalToConstant: 120),
+            buttonAdd.heightAnchor.constraint(equalToConstant: 120)
+        ])
+    }
 }
 
 // MARK: ViewController Style
