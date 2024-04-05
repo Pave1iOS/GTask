@@ -12,12 +12,19 @@ class TaskViewController: UIViewController {
     private lazy var buttonAdd: UIButton = {
         let button = UIButton()
         let image = UIImage(named: "addButtonImage")
-//        button.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
         button.setBackgroundImage(image, for: .normal)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
+    }()
+    
+    private lazy var addNewTaskView: UIView = {
+        let taskView = UIView()
+        
+        taskView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return taskView
     }()
     
     private let cellID = "taskCell"
@@ -31,32 +38,6 @@ class TaskViewController: UIViewController {
         setUpView()
         setUpConstraints()
         
-    }
-}
-
-// MARK: Constraints
-private extension TaskViewController {
-    func setUpConstraints() {
-        
-        // UILayoutGuide
-        let guide = UILayoutGuide()
-        view.addLayoutGuide(guide)
-        
-        NSLayoutConstraint.activate([
-            guide.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75),
-            guide.widthAnchor.constraint(equalTo: view.widthAnchor),
-            guide.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            guide.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        
-        // buttonAdd
-        NSLayoutConstraint.activate([
-            buttonAdd.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
-            
-            buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonAdd.widthAnchor.constraint(equalToConstant: 120),
-            buttonAdd.heightAnchor.constraint(equalToConstant: 120)
-        ])
     }
 }
 
@@ -85,9 +66,12 @@ private extension TaskViewController {
         view.addSubview(tableView)
     }
     
+    // buttonAdd
     func setButtonAdd() {
         view.addSubview(buttonAdd)
     }
+    
+    
 }
 
 extension TaskViewController: UITableViewDataSource {
@@ -105,6 +89,41 @@ extension TaskViewController: UITableViewDataSource {
         
         cell.contentConfiguration = content
         return cell
+    }
+}
+
+// MARK: Constraints
+private extension TaskViewController {
+    func setUpConstraints() {
+        
+        // UILayoutGuide
+        let guide = UILayoutGuide()
+        view.addLayoutGuide(guide)
+        
+        NSLayoutConstraint.activate([
+            guide.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75),
+            guide.widthAnchor.constraint(equalTo: view.widthAnchor),
+            guide.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            guide.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+        
+        // buttonAdd
+        NSLayoutConstraint.activate([
+            buttonAdd.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+            
+            buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonAdd.widthAnchor.constraint(equalToConstant: 120),
+            buttonAdd.heightAnchor.constraint(equalToConstant: 120)
+        ])
+        
+        // buttonAdd
+        NSLayoutConstraint.activate([
+            buttonAdd.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+            
+            buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonAdd.widthAnchor.constraint(equalToConstant: 120),
+            buttonAdd.heightAnchor.constraint(equalToConstant: 120)
+        ])
     }
 }
 
