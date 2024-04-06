@@ -14,25 +14,33 @@ class TaskViewController: UIViewController {
         let image = UIImage(named: "addButtonImage")
         button.setBackgroundImage(image, for: .normal)
         
+        button.addAction(addTaskButtonDidTapped, for: .touchUpInside)
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
 
+    // MARK: Properties
     // ViewAddNewTask
     let viewAddNewTask = NewTaskView()
     
     private let cellID = "taskCell"
     private let storageManager = StorageManager.shared
     private var taskList = Task.getTasks()
+    
+    // MARK: Actions
+    private lazy var addTaskButtonDidTapped = UIAction { [unowned self] _ in
+        showNewTaskView()
+    }
 
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .darkGray
         
         setUpView()
         setUpConstraints()
-        
     }
 }
 
@@ -73,7 +81,22 @@ private extension TaskViewController {
         
     }
 }
+// MARK: Actions
+private extension TaskViewController {
+    func showNewTaskView() {
+//        viewAddNewTask.isHidden.toggle()
+        
+        UIView.transition(
+            with: viewAddNewTask,
+            duration: 0.5,
+            options: [.transitionFlipFromTop, .curveEaseOut]
+        ) { [unowned self] in
+            viewAddNewTask.isHidden.toggle()
+        }
+    }
+}
 
+// MARK: UITableViewDataSource
 extension TaskViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         taskList.count
