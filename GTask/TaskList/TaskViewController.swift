@@ -15,11 +15,6 @@ class TaskViewController: UIViewController {
         button.setBackgroundImage(image, for: .normal)
         
         button.addAction(addTaskButtonDidTapped, for: .touchUpInside)
-        
-        
-        
-        
-        
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
