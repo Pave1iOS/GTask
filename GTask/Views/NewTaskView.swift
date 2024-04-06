@@ -8,6 +8,18 @@
 import UIKit
 
 class NewTaskView: UIView {
+    
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "Создать задачу"
+        label.font = .boldSystemFont(ofSize: 20)
+        
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
