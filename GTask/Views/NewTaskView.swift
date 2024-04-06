@@ -14,7 +14,7 @@ class NewTaskView: UIView {
         
         label.text = "Создать задачу"
         label.font = .boldSystemFont(ofSize: 20)
-        
+        label.textColor = .black
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -27,10 +27,35 @@ class NewTaskView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .white
         self.layer.cornerRadius = 20
+        
+        setUpView()
+        setUpConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+// MARK:
+private extension NewTaskView {
+    func setUpView() {
+        self.addSubview(titleLabel)
+    }
+}
+
+// MARK: Constraints
+private extension NewTaskView {
+    func setUpConstraints() {
+        
+        NSLayoutConstraint.activate([
+            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+    }
+}
+
+#Preview {
+    NewTaskView()
 }
